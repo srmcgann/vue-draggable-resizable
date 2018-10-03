@@ -368,6 +368,8 @@ export default {
             window.requestAnimationFrame(animate);
         },
         handleMove(e) {
+            if (e.stopPropagation) e.stopPropagation();
+            if (e.preventDefault) e.preventDefault();
             const isTouchMove = e.type.indexOf('touchmove') !== -1;
             this.mouseX = isTouchMove
                 ? e.touches[0].clientX
